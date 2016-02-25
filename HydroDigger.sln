@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HydroDigger.CSharp", "HydroDigger.CSharp.csproj", "{C9F473BA-DDD5-F7D5-BDAD-58171BDC3C6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HydroDigger.CSharp.Editor", "HydroDigger.CSharp.Editor.csproj", "{AF9A7C68-6764-F907-45BD-17C7E9ACA582}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9F473BA-DDD5-F7D5-BDAD-58171BDC3C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F473BA-DDD5-F7D5-BDAD-58171BDC3C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F473BA-DDD5-F7D5-BDAD-58171BDC3C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F473BA-DDD5-F7D5-BDAD-58171BDC3C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF9A7C68-6764-F907-45BD-17C7E9ACA582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF9A7C68-6764-F907-45BD-17C7E9ACA582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF9A7C68-6764-F907-45BD-17C7E9ACA582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF9A7C68-6764-F907-45BD-17C7E9ACA582}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
