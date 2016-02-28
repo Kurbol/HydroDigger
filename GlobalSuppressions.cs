@@ -4,5 +4,5 @@
 // Project-level suppressions either have no target or are given 
 // a specific target and scoped to a namespace, type, member, etc.
 
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Maintainability", "S1144:Unused private types or members should be removed", Justification = "<Pending>", Scope = "member", Target = "~M:MapManager.OnDrawGizmos")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Maintainability", "S1144:Unused private types or members should be removed", Justification = "<Pending>", Scope = "member", Target = "~M:HydroParticle.Start")]
 

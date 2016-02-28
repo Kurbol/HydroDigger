@@ -9,18 +9,18 @@ public class Spawner : MonoBehaviour
     private int objectCount;
 
     [SerializeField]
-    private int maximumNumberOfParticles;
+    private int maximumNumberOfParticles = 100;
 
     [SerializeField]
     private bool showGizmos;
 
     [Range(0, 2)]
     [SerializeField]
-    private float spawnDelay = 0.5F;
+    private float spawnDelay = 0.1F;
 
     [Range(0, 10)]
     [SerializeField]
-    private float spawnRadius = 2F;
+    private float spawnRadius = 1F;
 
     [SerializeField]
     private RecyclableObject recyclableObjectPrefab;
