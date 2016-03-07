@@ -2,6 +2,11 @@
 
 public static class Vector2Extentions
 {
+    public static Vector2 ToVector(this float degrees)
+    {
+        return Vector2FromAngle(degrees);
+    }
+
     public static Vector2 Vector2FromAngle(float degrees)
     {
         float radians = degrees * Mathf.Deg2Rad;

@@ -70,13 +70,15 @@
     <Compile Include="Assets\Scripts\Hydro\HydroManager\HydroManager.cs" />
     <Compile Include="Assets\Scripts\Hydro\HydroManager\Properties\Liquid.cs" />
     <Compile Include="Assets\Scripts\Hydro\HydroManager\Properties\Physics.cs" />
+    <Compile Include="Assets\Scripts\Hydro\HydroParticle\Absorption.cs" />
+    <Compile Include="Assets\Scripts\Hydro\HydroParticle\ForceController.cs" />
+    <Compile Include="Assets\Scripts\Hydro\HydroParticle\Hydro Animation\VelocityRotation.cs" />
+    <Compile Include="Assets\Scripts\Hydro\HydroParticle\Hydro Animation\VelocityScale.cs" />
     <Compile Include="Assets\Scripts\Hydro\HydroParticle\Hydro Behaviors\HydroBehavior.cs" />
     <Compile Include="Assets\Scripts\Hydro\HydroParticle\Hydro Behaviors\LiquidBehavior.cs" />
+    <Compile Include="Assets\Scripts\Hydro\HydroParticle\Hydro Death\OutOfBoundsDestroy.cs" />
+    <Compile Include="Assets\Scripts\Hydro\HydroParticle\Hydro Death\RecyclableObject.cs" />
     <Compile Include="Assets\Scripts\Hydro\HydroParticle\HydroParticle.cs" />
-    <Compile Include="Assets\Scripts\Hydro\HydroParticle\OutOfBoundsDestroy.cs" />
-    <Compile Include="Assets\Scripts\Hydro\HydroParticle\RecyclableObject.cs" />
-    <Compile Include="Assets\Scripts\Hydro\HydroParticle\VelocityRotation.cs" />
-    <Compile Include="Assets\Scripts\Hydro\HydroParticle\VelocityScale.cs" />
     <Compile Include="Assets\Scripts\Hydro\Spawner.cs" />
     <Compile Include="Assets\Scripts\Map\MapGeneration\Extensions\MapCreationExtensions.cs" />
     <Compile Include="Assets\Scripts\Map\MapGeneration\Extensions\MapExtensions.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Assets\Scripts\Map\MeshGeneration\MeshGeneration.cs" />
     <Compile Include="Assets\Scripts\Map\MeshGeneration\MeshVertex.cs" />
     <Compile Include="Assets\Scripts\Utility\Coordinate.cs" />
+    <Compile Include="Assets\Scripts\Utility\Extensions\BooleanExtensions.cs" />
     <Compile Include="Assets\Scripts\Utility\Extensions\CoordinateExtensions.cs" />
     <Compile Include="Assets\Scripts\Utility\Extensions\GridArrayExtensions.cs" />
     <Compile Include="Assets\Scripts\Utility\Extensions\TransformExtensions.cs" />
@@ -103,7 +106,7 @@
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\Metaball.shader" />
+    <None Include="Assets\Graphics\Shaders\Metaball.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

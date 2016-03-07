@@ -5,12 +5,22 @@ using UnityEngine;
 public class Physics
 {
     [SerializeField]
-    private float gravityScale;
-    public float GravityScale
+    private float mass;
+    public float Mass
     {
         get
         {
-            return gravityScale;
+            return mass;
+        }
+    }
+
+    [SerializeField]
+    private float linearDrag;
+    public float LinearDrag
+    {
+        get
+        {
+            return linearDrag;
         }
     }
 
@@ -25,12 +35,12 @@ public class Physics
     }
 
     [SerializeField]
-    private float mass;
-    public float Mass
+    private float gravityScale;
+    public float GravityScale
     {
         get
         {
-            return mass;
+            return gravityScale;
         }
     }
 

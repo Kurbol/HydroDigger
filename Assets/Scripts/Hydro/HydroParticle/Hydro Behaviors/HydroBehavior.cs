@@ -4,6 +4,25 @@ using UnityEngine;
 public abstract class HydroBehavior : MonoBehaviour
 {
     [SerializeField]
+    private Physics physics;
+    protected Physics Physics
+    {
+        get
+        {
+            return physics;
+        }
+
+        set
+        {
+            physics = value;
+            Rigidbody.mass = physics.Mass;
+            Rigidbody.drag = physics.LinearDrag;
+            Rigidbody.angularDrag = physics.AngularDrag;
+            Rigidbody.gravityScale = physics.GravityScale;
+        }
+    }
+
+    [SerializeField]
     private Rigidbody2D rigidBody;
     public Rigidbody2D Rigidbody
     {
@@ -47,10 +66,17 @@ public abstract class HydroBehavior : MonoBehaviour
         StopCoroutine("RunGraphicsBehavior");
     }
 
+    private void CheckMaximumVelocity()
+    {
+        if (Rigidbody.velocity.magnitude > Physics.MaximumVelocity)
+            Rigidbody.velocity = Rigidbody.velocity.normalized * Physics.MaximumVelocity;
+    }
+
     private IEnumerator RunPhysicsBehavior()
     {
         while (true)
         {
+            CheckMaximumVelocity();
             UpdatePhysicsBehavior();
 
             yield return new WaitForFixedUpdate();

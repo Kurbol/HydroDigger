@@ -10,22 +10,19 @@ public class LiquidBehavior : HydroBehavior
     public override void InitializeState()
     {
         gameObject.layer = LayerMask.NameToLayer("Metaball");
-        Rigidbody.gravityScale = HydroManager.Liquid.Physics.GravityScale;
-        Rigidbody.angularDrag = HydroManager.Liquid.Physics.AngularDrag;
-        Rigidbody.mass = HydroManager.Liquid.Physics.Mass;
+        Physics = HydroManager.Liquid.Physics;
 
         colorFadePercent = 0;
         StopCoroutine("FadeInColor");
         StartCoroutine("FadeInColor");
+
+        StopCoroutine("UpdatePhysics");
+        StartCoroutine("UpdatePhysics");
     }
 
     protected override void UpdatePhysicsBehavior()
     {
-        if (Rigidbody == null)
-            return;
-
-        if (Rigidbody.velocity.magnitude > HydroManager.Liquid.Physics.MaximumVelocity)
-            Rigidbody.velocity = Rigidbody.velocity.normalized * HydroManager.Liquid.Physics.MaximumVelocity;
+        return;
     }
 
     protected override void UpdateGraphicsBehavior()
@@ -47,6 +44,22 @@ public class LiquidBehavior : HydroBehavior
             colorFadePercent += colorFadeRate * Time.deltaTime;
 
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private IEnumerator UpdatePhysics()
+    {
+        while (true)
+        {
+            Coordinate coordinate = MapManager.Map.GetCoordinateFromPosition(transform.position);
+            SoilType soilType = MapManager.Map[coordinate.X, coordinate.Y];
+
+            if (soilType == SoilType.None)
+                Physics = HydroManager.Liquid.Physics;
+            else
+                Physics = soilType.SoilTypeMetadata().FluidPhysics;
+
+            yield return new WaitForFixedUpdate();
         }
     }
 }

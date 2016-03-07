@@ -16,4 +16,17 @@ public static class TransformExtensions
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, z);
     }
+
+    public static GameObject CreateUniqueChildGameObject(this Transform transform, string gameObjectName)
+    {
+        if (transform.FindChild(gameObjectName))
+        {
+            Object.DestroyImmediate(transform.FindChild(gameObjectName).gameObject);
+        }
+
+        GameObject gameObjectHolder = new GameObject(gameObjectName);
+        gameObjectHolder.transform.parent = transform;
+
+        return gameObjectHolder;
+    }
 }
