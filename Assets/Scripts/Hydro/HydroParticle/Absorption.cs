@@ -1,10 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Absorption : MonoBehaviour
 {
+    [SerializeField]
+    private Rigidbody2D rigidBody;
+    public Rigidbody2D Rigidbody
+    {
+        get
+        {
+            if (rigidBody == null)
+            {
+                rigidBody = gameObject.GetSafeComponent<Rigidbody2D>();
+            }
+
+            return rigidBody;
+        }
+    }
+
+    [SerializeField]
+    private float absorptionRate = 0.5F;
+
     private void Start()
     {
         StartCoroutine(MoveAwayFromColliders());
@@ -17,25 +34,20 @@ public class Absorption : MonoBehaviour
 
         while (true)
         {
-            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, degrees.ToVector());
-            hitCountPerAngle[degrees] = hits.Length;
+            Vector2 direction = degrees.DegreeToVector();
+            RaycastHit2D[] hits = Physics2D.RaycastAll((Vector2)transform.position + direction, direction, 1);
 
-            if (degrees >= 360)
+            if (hits.Length <= 0)
             {
                 degrees = 0;
 
-                if (hitCountPerAngle.Any())
-                {
-                    IEnumerable<KeyValuePair<float, int>> orderedHitCountPerAngle = hitCountPerAngle.OrderBy(a => a.Value);
-                    IEnumerable<float> leastHitAngles = orderedHitCountPerAngle.Where(a => a.Value <= orderedHitCountPerAngle.First().Value).Select(a => a.Key);
-
-                    // pick random leastHitAngle if leastHitAngles count is less than hitCountPerAngle count
-                }
-
-                yield return new WaitForFixedUpdate();
+                Debug.DrawLine(transform.position, (Vector2)transform.position + direction * absorptionRate);
+                Rigidbody.AddForce(direction * absorptionRate);
             }
 
-            degrees += 30;
+            yield return new WaitForFixedUpdate();
+
+            degrees += 45;
         }
     }
 }

@@ -2,12 +2,7 @@
 
 public static class Vector2Extentions
 {
-    public static Vector2 ToVector(this float degrees)
-    {
-        return Vector2FromAngle(degrees);
-    }
-
-    public static Vector2 Vector2FromAngle(float degrees)
+    public static Vector2 DegreeToVector(this float degrees)
     {
         float radians = degrees * Mathf.Deg2Rad;
         return new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
